@@ -43,7 +43,7 @@ La modélisation de la base de données est conçue pour assurer la traçabilit�
 ### Table **EPI**
 | Colonne              | Type                              |
 |----------------------|-----------------------------------|
-| id                   | INT AUTO_INCREMENT  PK            |
+| id                   | INT AUTO_INCREMENT PK             |
 | num_serie            | VARCHAR(50)                       |
 | type_epi             | INT (FK vers Type_EPI(id))        |
 | date_achat           | DATE                              |
@@ -63,36 +63,33 @@ La modélisation de la base de données est conçue pour assurer la traçabilit�
 ### Table **Controle**
 | Colonne              | Type                                              |
 |----------------------|---------------------------------------------------|
-| id                   | INT AUTO_INCREMENT   PK                           |
+| id                   | INT AUTO_INCREMENT PK                             |
 | id_epi               | INT (FK vers EPI(id))                             |
-| id_gestionnaire      | INT (FK vers user(id))                            |
+| id_gestionnaire      | INT (FK vers User(id))                            |
 | date_controle        | DATE                                              |
-| statut_epi           | VARCHAR(50) (FK vers controle_Type(id))           |
+| statut_epi           | VARCHAR(50) (FK vers Controle_Type(id))           |
 | remarques            | VARCHAR(255)                                      |
 
-### Table **controle_Type**
+### Table **Controle_Type**
 | Colonne| Type           |
 |--------|----------------|
-| id     | VARCHAR(50)  PK|
+| id     | VARCHAR(50) PK |
 
 ### Table **User**
 | Colonne              | Type                                              |
 |----------------------|---------------------------------------------------|
-| id                   | INT AUTO_INCREMENT   PK                           |
+| id                   | INT AUTO_INCREMENT PK                             |
 | nom                  | VARCHAR(20)                                       |
 | prenom               | VARCHAR(20)                                       |
 | mail                 | VARCHAR(255)                                      |
-| statut_user          | VARCHAR(50) (FK vers user_Type(id))               |
+| statut_user          | VARCHAR(50) (FK vers User_Type(id))               |
 | pwd                  | VARCHAR(255)                                      |
 
-### Table **user_Type**
+### Table **User_Type**
 | Colonne | Type          |
 |---------|---------------|
 | id      | VARCHAR(50) PK|
 
-
 L'ensemble de cette structure assure une gestion complète des équipements et des contrôles, en facilitant la traçabilité et les alertes pour les contrôles à venir.
 
 ![Modèle conceptuel de la base de données](https://github.com/Mehdi95T/GestionEPI/blob/main/img/Capture%20d'%C3%A9cran%202024-10-01%20103137.png)
-
-
