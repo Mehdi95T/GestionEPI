@@ -92,4 +92,4 @@ La modélisation de la base de données est conçue pour assurer la traçabilit�
 
 L'ensemble de cette structure assure une gestion complète des équipements et des contrôles, en facilitant la traçabilité et les alertes pour les contrôles à venir.
 
-![Modèle conceptuel de la base de données](https://github.com/Mehdi95T/GestionEPI/blob/main/img/Capture%20d'%C3%A9cran%202024-10-01%20103137.png)
+![Modèle conceptuel de la base de données](https://github.com/Mehdi95T/GestionEPI/blob/main/img/mod%C3%A8le_conception_EPI.png)
