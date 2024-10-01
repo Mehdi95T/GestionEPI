@@ -50,9 +50,6 @@ La modélisation de la base de données est conçue pour assurer la traçabilit�
 | date_fabrication     | DATE                              |
 | date_mise_service    | DATE                              |
 | periode_controle     | INT                               |
-| taille               | VARCHAR(50)                       |
-| couleur              | VARCHAR(50)                       |
-| marque               | VARCHAR(50)                       |
 
 ### Table **Type_EPI**
 | Colonne              | Type                  |
