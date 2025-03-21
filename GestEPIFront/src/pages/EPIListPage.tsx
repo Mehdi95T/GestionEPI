@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Container, Typography, List, ListItem, ListItemText, Button } from "@mui/material";
 import { getEpis } from "../api";
 import { useUserRole } from "../utils/auth";
+import LogoutButton from "../components/LogoutButton";
 
 const EPIListPage: React.FC = () => {
   const navigate = useNavigate();
@@ -22,6 +23,10 @@ const EPIListPage: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Liste des EPI
       </Typography>
+      {error && <Typography color="error">{error}</Typography>}
+
+      <LogoutButton />
+
       {error && <Typography color="error">{error}</Typography>}
 
       {role === "gestionnaire" && (

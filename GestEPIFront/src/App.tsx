@@ -9,6 +9,9 @@ import AlertPage from './pages/AlertPage';
 import CritiquePage from './pages/CritiquePage';
 import ProtectedRoute from './ProtectedRoute';
 import SignUpPage from './pages/SignupPage';
+import CreateEPIPage from './pages/CreateEPIPage'
+import CreateControlePage from './pages/CreateControlePage'
+import ControleDetailPage from "./pages/ControleDetailPage";
 
 
 
@@ -34,6 +37,13 @@ const App: React.FC = () => {
               <ControleListPage />
             </ProtectedRoute>
           } />
+          <Route
+          path="/controles/new"
+          element={
+            <ProtectedRoute>
+              <CreateControlePage />
+            </ProtectedRoute>
+          }/>
           <Route path="/alertes" element={
             <ProtectedRoute>
               <AlertPage />
@@ -42,6 +52,20 @@ const App: React.FC = () => {
           <Route path="/critique" element={
             <ProtectedRoute>
               <CritiquePage />
+            </ProtectedRoute>
+          } />
+          <Route
+          path="/epis/new"
+          element={
+            <ProtectedRoute>
+              <CreateEPIPage />
+            </ProtectedRoute>
+          } />
+          <Route
+          path="/controles/:id"
+          element={
+            <ProtectedRoute>
+              <ControleDetailPage />
             </ProtectedRoute>
           } />
           {/* Redirection par défaut */}

@@ -173,6 +173,21 @@ export async function getCritique(): Promise<any[]> {
   return response.json();
 }
 
+export async function getEpisDisponibles(): Promise<any[]> {
+  const token = localStorage.getItem("token");
+  const response = await fetch(`${API_BASE_URL}/epis/disponibles`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  });
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Failed to fetch EPI disponibles");
+  }
+  return response.json();
+}
+
 /*===============================
   Gestion des Contrôles
 ================================*/
@@ -199,13 +214,14 @@ export async function getControles(epiId?: number): Promise<any[]> {
 /**
  * Récupère les détails d'un contrôle par son ID.
  */
-export async function getControleById(id: number): Promise<any> {
-  const response = await fetch(`${API_BASE_URL}/controles/${id}`, {
+export async function getControleById(controleId: number): Promise<any> {
+  const response = await fetch(`${API_BASE_URL}/controles/${controleId}`, {
     method: "GET",
     headers: getAuthHeaders()
   });
   if (!response.ok) {
-    throw new Error("Failed to fetch controle by id");
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Failed to fetch controle");
   }
   return response.json();
 }
@@ -213,14 +229,24 @@ export async function getControleById(id: number): Promise<any> {
 /**
  * Crée un nouveau contrôle pour un EPI (gestionnaire uniquement).
  */
-export async function createControle(controleData: any): Promise<any> {
+export async function createControle(controleData: {
+  dateControle: string;
+  epiId: number;
+  statut: string;
+  remarques: string;
+}): Promise<any> {
+  const token = localStorage.getItem("token");
   const response = await fetch(`${API_BASE_URL}/controles`, {
     method: "POST",
-    headers: getAuthHeaders(),
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(controleData)
   });
   if (!response.ok) {
-    throw new Error("Failed to create controle");
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Failed to create controle");
   }
   return response.json();
 }
