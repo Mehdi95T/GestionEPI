@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import JwtDecode, { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const login = async (username: string, password: string) => {
     const response = await fetch("http://localhost:3000/api/auth/login", {
@@ -49,3 +49,6 @@ export const login = async (username: string, password: string) => {
   
     return role;
   }
+
+  
+  
